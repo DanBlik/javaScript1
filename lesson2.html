@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//Task 1
+		/*let a = 1, b = 1, c, d;
+		c = ++a; //Префиксная форма инкремента вернет увеличенное значение а на 1(a=2) и в c пойдет новое значение a
+		alert(c); // 2
+
+		d = b++; //Постфиксная форма инкремента вернет увеличенное значение b на 1, но в d будет старое значение b(b=1)
+		alert(d); // 1
+
+		c = (2+ ++a); //2 + (2+1). a=3 (Постфиксный инкремент a)
+		alert(c); // 5
+
+		d = (2+ b++); // 2+2. b=3 (Префиксный инкремент b)
+		alert(d); // 4
+
+		alert(a); // 3
+		alert(b); // 3
+		*/
+
+		//Task 2
+		/*let a = 2;
+		let x = 1 + (a*= 2); // x = 1 + (2*2) = 5
+		*/
+
+		//Task3
+		/*let a = -10;
+		let b = -1;
+		if (a >= 0 && b >= 0){
+			console.log(a-b);
+		}
+		else if (a < 0 && b < 0){
+			console.log(a*b);
+		}
+		else if (a >= 0 && b < 0 || a < 0 && b >= 0){
+			console.log(a+b);
+		}
+		*/
+
+		//Task4
+		function sum(a, b){
+			let summa = a + b;
+			return summa;
+		}
+
+		function diff(a, b){
+			let difference = a - b;
+			return difference;
+		}
+
+		function mult(a, b){
+			let multiplication = a * b;
+			return multiplication;
+		}
+
+		function div(a, b){
+			let division = a / b;
+			return division;
+		}
+
+		//Task5
+		function mathOperation(arg1, arg2, operation){
+			switch(operation){
+				case 'sum':
+					console.log(sum(arg1, arg2));
+					break;
+				case 'diff':
+					console.log(diff(arg1, arg2));
+					break;
+				case 'mult':
+					console.log(mult(arg1, arg2));
+					break;
+				case 'div':
+					console.log(div(arg1, arg2));
+					break;
+				default:
+					console.log('Error');		
+			}
+		}
+		mathOperation(10, 5, 'sum'); //15
+		mathOperation(10, 5, 'diff'); //5
+		mathOperation(10, 5, 'mult'); //50
+		mathOperation(10, 5, 'div'); //2
+
+		//Task6 
+		function power(val, pow){
+			if (pow == 0){
+				return 1;
+			}
+			else{
+				return val * power(val, (pow - 1));
+			}
+		}
+		console.log(power(2, 3)); //Возведение числа расчитывается только для положительных значений степени pow
+
+		//Task7
+		function checkPassword(path){
+			if (path.length < 3 || path.length > 12){
+				alert('Ошибка. Пароль должен состоять из 3 - 12 символов');
+				return "Некорректный пароль";
+			}
+			else {
+				// &, $, %, *
+					if (path.indexOf('&') >=0  || path.indexOf('$') >=0 || path.indexOf('%') >=0 || path.indexOf('*') >=0){
+						if (path.indexOf('q') === 0 || path.lastIndexOf('z') === path.length-1){
+							return 'Корректный пароль';
+						}
+					} 
+				 
+				return "Некорректный пароль";
+			}
+		}
+		console.log(checkPassword('*asdzss')); //Некорректный пароль
+		console.log(checkPassword('*asdzssz'));//Корректный пароль
+		console.log(checkPassword('q*asdzssz'));//Корректный пароль
+	</script>
+</body>
+</html>
