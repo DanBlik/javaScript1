@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//task1
+		function makeObj(num){
+			let obj = new Object;
+			if (num < 10 && num >= 0){
+				obj.units = num;
+			}
+			else if (num < 100 && num >= 10){
+				decades = Math.floor(num / 10);
+				units = num - decades * 10;
+				obj.decades = decades;
+				obj.units = units;
+			}
+			else if (num < 1000 && num >= 100){
+				hundreds = Math.floor(num / 100);
+				decades = Math.floor((num - hundreds * 100) / 10);
+				units = num - (hundreds * 100 + decades * 10);
+				obj.hundreds = hundreds;
+				obj.decades = decades;
+				obj.units = units;
+			}
+			else console.log("Error! You must enter numbers in the range 0 - 999");
+			return obj;
+		}
+
+		//task2
+		let Basket = {
+
+			goodList: [
+			
+			],
+
+			countTotalPrice: function(){
+				let totalPrice = 0;
+				for (let i = 0; i < this.goodList.length; i++){
+					totalPrice+= this.goodList[i].price;
+				}
+				return totalPrice;
+			},
+
+			countTotalNumber: function(){
+				let totalNumber = 0;
+				for (let i = 0; i < this.goodList.length; i++){
+					totalNumber++;
+				}
+				return totalNumber;
+			}
+		};
+
+		let Good = [
+					  {name: 'Beer', price: 500, putToBasket: function(){} },
+
+					  {name: 'Wine', price: 1500, putToBasket: function(){} },
+
+					  {name: 'Cognac', price: 3000, putToBasket: function(){} },
+
+					  {name: 'Whiskey', price: 2000, putToBasket: function(){} },
+
+					  {name: 'Rum', price: 5000, putToBasket: function(){} }		 
+		];
+	
+
+		for (let i = 1; i < (Good.length + 1); i++){
+			if (i % 2 == 0 && i < 5){
+				Basket.goodList.push(Good[i-1]);
+			}
+			else if (i % 2 != 0 && i < 3){
+				Basket.goodList.push(Good[i-1]);
+			}
+		}
+		console.log(Basket.countTotalPrice());
+		console.log(Basket.countTotalNumber());
+
+	</script>
+</body>
+</html>
