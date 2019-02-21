@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script >
+		//Task 1
+		let a = [
+				 [{name: 'Mary', age: 23}, {name: 'Mike', age: 45}, {name: 'Nick', age: 11}],
+				 [{name: 'Adam', age: 56}, {name: 'Sara', age: 21}, {name: 'Don', age: 22}],
+				 [{name: 'Karl', age: 34}, {name: 'Marta', age: 76}, {name: 'John', age: 19}]
+				];
+		let b = a.slice();
+		console.log(b);
+
+		//Task 2
+		let goods = [
+					  {type: 'Jacket', brand: 'Adidas', collection: 'Originals', price: 5000},
+					  {type: 'Jacket', brand: 'Nike', collection: 'Sportswear', price: 4500},
+					  {type: 'Pants', brand: 'Adidas', collection: 'Perfomance', price: 300},
+					  {type: 'T-shirt', brand: 'Reebok', collection: 'Classic', price: 2000},
+					  {type: 'Footwear', brand: 'Reebok', collection: 'Classic', price: 6000},
+					  {type: 'Footwear', brand: 'Adidas', collection: 'Originals', price: 5300}
+					 ];
+
+		let basket = [{type: 'T-shirt', brand: 'Reebok', collection: 'Classic', price: 2000},
+					  {type: 'Footwear', brand: 'Reebok', collection: 'Classic', price: 6000},
+					  {type: 'Footwear', brand: 'Adidas', collection: 'Originals', price: 5300}];
+					 
+		function countBasketPrice(){
+			let sum = 0;
+			for (let i = 0; i < basket.length; i++){
+				sum+= basket[i].price;
+			}
+			return sum;
+		}
+		console.log(countBasketPrice());
+
+		//Task3
+		for (let i = 0; i < 10; console.log(i), i++){
+
+		}
+	
+		//Task4
+		var string = " ";
+		for (var i = 0; i < 20; i++) {
+			string = (string + "*");
+			console.log(string);
+		}
+
+	</script>
+</body>
+</html>
