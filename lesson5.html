@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: #ccc;
+		}
+		.chess-board {
+			margin: 0 auto;
+			background-color: #fff;
+		}
+		.chess-board div {
+			height: 40px;
+			width: 40px;
+			text-align: center;
+			line-height: 40px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class='chess-board'></div>
+	<div class='game'></div>
+	<script>
+		 
+		var chess = {
+	size: 8, // задает размер доски
+	chessBoard: document.querySelector('.chess-board'),
+	build: function() { // метод для построения доски
+		this.chessBoard.style.height = (this.size + 1)*40 + 'px'; // задаем высоту доски в зависимости от количества клеток
+		this.chessBoard.style.width = (this.size + 1)*40 + 'px'; // задаем ширину доски в зависимости от количества клеток
+		for (var y = 1; y <= this.size+1; y++) {
+			for (var x = 1; x <= this.size+1; x++) {
+					var newCell = document.createElement('div'); // создаем пустой div
+					newCell.className = 'cell';
+					if ( x == 1 && y >1){
+						newCell.innerHTML = y - 1; // запоняем первый столбец цифрами от 1 до this.size
+					}
+					var lang = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+					if ( y == 1 && x > 1) (
+						newCell.innerHTML = lang.charAt(x - 2) // заполняем первую строку символами алфавита
+					);
+					this.chessBoard.appendChild(newCell);
+					if (y > 1 && x > 1){
+						if ( y%2 !== 0){
+							if ( x%2 == 0 ){
+								newCell.style.backgroundColor = '#777'; // делаем фон четной клетки в нечетном ряду темным
+							}
+						}
+						else if ( x%2 !== 0 ){
+							newCell.style.backgroundColor = '#777'; // делаем фон нечетной клетки в четном ряду темным
+						}
+					}
+			};
+		};
+	},
+	setFigure: function(){
+		allCell = document.querySelectorAll('.cell');
+		console.log(allCell);
+		allCell[10].innerHTML = 'Л';
+		allCell[11].innerHTML = 'К';
+		allCell[12].innerHTML = 'С';
+		allCell[13].innerHTML = 'Ф';
+		allCell[14].innerHTML = 'Кр';
+		allCell[15].innerHTML = 'С';
+		allCell[16].innerHTML = 'К';
+		allCell[17].innerHTML = 'Л';
+		for (var i = 19, j = 64; i < 27, j < 72; i++, j++){
+			allCell[i].innerHTML = 'П';
+			allCell[j].innerHTML = 'П';
+		}
+		allCell[73].innerHTML = 'Л';
+		allCell[74].innerHTML = 'К';
+		allCell[75].innerHTML = 'С';
+		allCell[76].innerHTML = 'Ф';
+		allCell[77].innerHTML = 'Кр';
+		allCell[78].innerHTML = 'С';
+		allCell[79].innerHTML = 'К';
+		allCell[80].innerHTML = 'Л';
+	}
+};
+
+
+chess.build();
+chess.setFigure();
+	</script>
+</body>
+</html>
