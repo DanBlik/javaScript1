@@ -5,8 +5,8 @@
 	<title>Document</title>
 </head>
 <body>
-	<script>
-		//task1
+	<script>/*
+		//task1 
 		function makeObj(num){
 			let obj = new Object;
 			if (num < 10 && num >= 0){
@@ -29,13 +29,11 @@
 			else console.log("Error! You must enter numbers in the range 0 - 999");
 			return obj;
 		}
-
+**/
 		//task2
-		let Basket = {
+		let basket = {
 
-			goodList: [
-			
-			],
+			goodList: [],
 
 			countTotalPrice: function(){
 				let totalPrice = 0;
@@ -54,29 +52,25 @@
 			}
 		};
 
-		let Good = [
-					  {name: 'Beer', price: 500, putToBasket: function(){} },
+		let goodsList = [
+					  {name: 'Beer', price: 500, putToBasket: function(){basket.goodList.push(this);} },
 
-					  {name: 'Wine', price: 1500, putToBasket: function(){} },
+					  {name: 'Wine', price: 1500, putToBasket: function(){basket.goodList.push(this);} },
 
-					  {name: 'Cognac', price: 3000, putToBasket: function(){} },
+					  {name: 'Cognac', price: 3000, putToBasket: function(){basket.goodList.push(this);} },
 
-					  {name: 'Whiskey', price: 2000, putToBasket: function(){} },
+					  {name: 'Whiskey', price: 2000, putToBasket: function(){basket.goodList.push(this);} },
 
-					  {name: 'Rum', price: 5000, putToBasket: function(){} }		 
+					  {name: 'Rum', price: 5000, putToBasket: function(){basket.goodList.push(this);} }		 
 		];
 	
-
-		for (let i = 1; i < (Good.length + 1); i++){
-			if (i % 2 == 0 && i < 5){
-				Basket.goodList.push(Good[i-1]);
-			}
-			else if (i % 2 != 0 && i < 3){
-				Basket.goodList.push(Good[i-1]);
-			}
-		}
-		console.log(Basket.countTotalPrice());
-		console.log(Basket.countTotalNumber());
+		goodsList.forEach(callbackfn: function(item, index){
+			item.putToBasket();
+			if (index % 2 == 1) {item.putToBasket()}
+		});
+		
+		console.log(basket.countTotalPrice());
+		console.log(basket.countTotalNumber());
 
 	</script>
 </body>
